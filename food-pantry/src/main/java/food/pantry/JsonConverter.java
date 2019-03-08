@@ -1,14 +1,18 @@
 package food.pantry;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
 
 public class JsonConverter {
-	static Double getJsonElementAsDouble(JsonArray arr, int[] index, String name) {
+	static Double getJsonElementAsDouble(JsonElement element) {
     	Double num;
     	try {
-    		num = arr.get(index[0]).getAsJsonObject().get(name).getAsDouble();
-    		index[0]++;
+    		num = element.getAsDouble();
     	} catch (UnsupportedOperationException | 
     			NullPointerException | 
     			NumberFormatException e) {
@@ -17,11 +21,10 @@ public class JsonConverter {
     	return num;
     }
 	
-	static Integer getJsonElementAsInt(JsonArray arr, int[] index, String name) {
+	static Integer getJsonElementAsInt(JsonElement element) {
     	Integer num;
     	try {
-    		num = arr.get(index[0]).getAsJsonObject().get(name).getAsInt();
-    		index[0]++;
+    		num = element.getAsInt();
     	} catch (UnsupportedOperationException | 
     			NullPointerException | 
     			NumberFormatException e) {
@@ -30,11 +33,10 @@ public class JsonConverter {
     	return num;
     }
     
-    static String getJsonElementAsString(JsonArray arr, int[] index, String name) {
+    static String getJsonElementAsString(JsonElement element) {
     	String s;
     	try {
-    		s = arr.get(index[0]).getAsJsonObject().get(name).getAsString();
-    		index[0]++;
+    		s = element.getAsString();
     	} catch (UnsupportedOperationException | 
     			NullPointerException e) {
 			s = null;
@@ -48,5 +50,17 @@ public class JsonConverter {
     	} catch (IndexOutOfBoundsException e) {
     		return null;
     	}
+    }
+    
+    static Map<String, JsonElement> getMapFromJsonArray(JsonArray jsonArr) {
+    	Map<String, JsonElement> map = new HashMap<>();
+		for (JsonElement element : jsonArr) {
+			JsonObject obj = element.getAsJsonObject();
+			Set<Map.Entry<String, JsonElement>> entries = obj.entrySet();
+			for (Map.Entry<String, JsonElement> entry : entries) {
+				map.put(entry.getKey(), entry.getValue());
+			}
+		}
+		return map;
     }
 }

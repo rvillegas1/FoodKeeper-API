@@ -1,5 +1,10 @@
 package food.pantry;
 
+import java.util.Map;
+
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
+
 public class CookingMethod {
 	private Integer id;
 	private Integer productID;
@@ -12,6 +17,8 @@ public class CookingMethod {
 	private Double timingTo;
 	private String timingMetric;
 	private String timingPer;
+	
+	public CookingMethod() {}
 	
 	public CookingMethod(Integer id, Integer productID, String method, Double measureFrom, Double measureTo,
 			String sizeMetric, String cookingTemp, Double timingFrom, Double timingTo, String timingMetric,
@@ -79,5 +86,24 @@ public class CookingMethod {
 				+ measureFrom + ", measureTo=" + measureTo + ", sizeMetric=" + sizeMetric + ", cookingTemp="
 				+ cookingTemp + ", timingFrom=" + timingFrom + ", timingTo=" + timingTo + ", timingMetric="
 				+ timingMetric + ", timingPer=" + timingPer + "]";
+	}
+	
+	public static CookingMethod getFromJsonArray(JsonArray jsonArr) {
+		Map<String, JsonElement> map = JsonConverter.getMapFromJsonArray(jsonArr);
+		CookingMethod newCookingMethod = new CookingMethod();
+		
+		newCookingMethod.id = JsonConverter.getJsonElementAsInt(map.get("ID"));
+		newCookingMethod.productID = JsonConverter.getJsonElementAsInt(map.get("Product_ID"));
+		newCookingMethod.method = JsonConverter.getJsonElementAsString(map.get("Cooking_Method"));
+		newCookingMethod.measureFrom = JsonConverter.getJsonElementAsDouble(map.get("Measure_from"));
+		newCookingMethod.measureTo = JsonConverter.getJsonElementAsDouble(map.get("Measure_to"));
+		newCookingMethod.sizeMetric = JsonConverter.getJsonElementAsString(map.get("Size_metric"));
+		newCookingMethod.cookingTemp = JsonConverter.getJsonElementAsString(map.get("Cooking_Temperature"));
+		newCookingMethod.timingFrom = JsonConverter.getJsonElementAsDouble(map.get("Timing_from"));
+		newCookingMethod.timingTo = JsonConverter.getJsonElementAsDouble(map.get("Timing_to"));
+		newCookingMethod.timingMetric = JsonConverter.getJsonElementAsString(map.get("Timing_metric"));
+		newCookingMethod.timingPer = JsonConverter.getJsonElementAsString(map.get("Timing_per"));
+		
+		return newCookingMethod;
 	}
 }

@@ -1,5 +1,5 @@
-# Food Pantry Software
-Contains code to convert (using GSON) locally stored food pantry json file to java objects representing the data found within the file.
+# FoodKeeper API
+Currently only contains code to convert (using GSON) locally stored food pantry json file to java objects representing the data found within the file.
 
 File URL: <https://www.fsis.usda.gov/shared/data/EN/foodkeeper.json>
 
