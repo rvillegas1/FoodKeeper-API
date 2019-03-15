@@ -1,7 +1,19 @@
 # FoodKeeper API
-Currently only contains code to convert (using GSON) locally stored food pantry json file to java objects representing the data found within the file.
-
 File URL: <https://www.fsis.usda.gov/shared/data/EN/foodkeeper.json>
+
+Rest API Endpoints:
+| Method | Endpoint | Body | Return | Note |
+| ------ | -------- | ---- | ------ | ---- |
+| test   | test     | test | test   | test |
+
+| Method | Endpoint  | Body  | Return | Note |
+| -----  | --------- | ----- | ------ | ---- |
+| GET    | /product/*id* | | {<br>"id": *id*, "name": *"name"*, "subtitle": *"subtitle"*, "keywords": *"keywords"*, <br>"pantryLife": {"min": *min*, "max": *max*, "metric": *"metric"*, "tips": *"tips"*}, <br>"pantryAfterOpeningLife": {"min": *min*, "max": *max*, "metric": *"metric"*, "tips": *"tips"*}, <br>"refrigeratorLife": {"min": *min*, "max": *max*, "metric": *"metric"*, "tips": *"tips"*}, <br>"refrigrateAfterOpeningLife": {"min": *min*, "max": *max*, "metric": *"metric"*, "tips": *"tips"*}, <br>"refrigerateAfterThawingLife": {"min": *min*, "max": *max*, "metric": *"metric"*, "tips": *"tips"*}, <br>"freezerLife": {"min": *min*, "max": *max*, "metric": *"metric"*, "tips": *"tips"*}, <br>"dop_pantryLife": {"min": *min*, "max": *max*, "metric": *"metric"*, "tips": *"tips"*}, <br>"dop_refrigeratorLife": {"min": *min*, "max": *max*, "metric": *"metric"*, "tips": *"tips"*}, <br>"dop_freezerLife": {"min": *min*, "max": *max*, "metric": *"metric"*, "tips": *"tips"*} <br>} | Returns product with given id |
+| GET   | /product/*id*/name | | *name* | Returns name for this product id |
+| GET   | /category/*id* | | {"id": *id*, "name": *"name"*, "subcategory": *"subcategory"*} | Returns category with given id |
+| GET   | /cookingMethod/*id* | | {"id": *id*, "method": *"method"*, "measureFrom": *measureFrom*, "measureTo": *measureTo*, "sizeMetric": *"sizeMetric"*, "cookingTemp", *"cookingTemp"*, "timingFrom": *timingfrom*, "timingTo": *timingTo*, "timingMetric": *"timingMetric"*, "timingPer": *"timingPer"*, "productId": *productId*} | Returns cooking method with given id |
+| GET   | /cookingTip/*id* | | {"id": *id*, "tips": *"tips"*, "safeMinTemp": *safeMinTemp*, "restTime": *restTime*, "restTimeMetric": *"restTimeMetric"*} | Returns cooking tip with given id |
+
 
 Class Representation of Food Keeper Data:
 
