@@ -1,13 +1,18 @@
-package food.pantry;
+package food.pantry.model;
 
 import java.util.Map;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 
+import org.springframework.data.annotation.Id;
+
+import food.pantry.JsonConverter;
+
 public class CookingTip {
-	private Integer id;
-	private Integer productID;
+	@Id private Integer id;
+	
+	private Integer productId;
 	private String tips;
 	private Integer safeMinTemp;
 	private Integer restTime;
@@ -18,40 +23,64 @@ public class CookingTip {
 	public CookingTip(Integer id, Integer productID, String tips, Integer safeMinTemp, Integer restTime,
 			String restTimeMetric) {
 		this.id = id;
-		this.productID = productID;
+		this.productId = productID;
 		this.tips = tips;
 		this.safeMinTemp = safeMinTemp;
 		this.restTime = restTime;
 		this.restTimeMetric = restTimeMetric;
 	}
-
+	
 	public Integer getId() {
 		return id;
 	}
 
+	public void setId(Integer id) {
+		this.id = id;
+	}
+	
 	public Integer getProductID() {
-		return productID;
+		return productId;
+	}
+
+	public void setProductID(Integer productID) {
+		this.productId = productID;
 	}
 
 	public String getTips() {
 		return tips;
 	}
 
+	public void setTips(String tips) {
+		this.tips = tips;
+	}
+
 	public Integer getSafeMinTemp() {
 		return safeMinTemp;
+	}
+
+	public void setSafeMinTemp(Integer safeMinTemp) {
+		this.safeMinTemp = safeMinTemp;
 	}
 
 	public Integer getRestTime() {
 		return restTime;
 	}
 
+	public void setRestTime(Integer restTime) {
+		this.restTime = restTime;
+	}
+
 	public String getRestTimeMetric() {
 		return restTimeMetric;
 	}
-	
+
+	public void setRestTimeMetric(String restTimeMetric) {
+		this.restTimeMetric = restTimeMetric;
+	}
+
 	@Override
 	public String toString() {
-		return "CookingTip [id=" + id + ", productID=" + productID + ", tips=" + tips + ", safeMinTemp=" + safeMinTemp
+		return "CookingTip [id=" + id + ", productID=" + productId + ", tips=" + tips + ", safeMinTemp=" + safeMinTemp
 				+ ", restTime=" + restTime + ", restTimeMetric=" + restTimeMetric + "]";
 	}
 	
@@ -60,7 +89,7 @@ public class CookingTip {
 		CookingTip newCookingTip = new CookingTip();
 		
 		newCookingTip.id = JsonConverter.getJsonElementAsInt(map.get("ID"));
-		newCookingTip.productID = JsonConverter.getJsonElementAsInt(map.get("Product_ID"));
+		newCookingTip.productId = JsonConverter.getJsonElementAsInt(map.get("Product_ID"));
 		newCookingTip.tips = JsonConverter.getJsonElementAsString(map.get("Tips"));
 		newCookingTip.safeMinTemp = JsonConverter.getJsonElementAsInt(map.get("Safe_Minimum_Temperature"));
 		newCookingTip.restTime = JsonConverter.getJsonElementAsInt(map.get("Rest_Time"));

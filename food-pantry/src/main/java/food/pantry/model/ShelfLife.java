@@ -1,4 +1,4 @@
-package food.pantry;
+package food.pantry.model;
 
 public class ShelfLife {	
 	private Integer min;

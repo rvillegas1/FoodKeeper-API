@@ -9,7 +9,8 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 
 public class JsonConverter {
-	static Double getJsonElementAsDouble(JsonElement element) {
+	
+	public static Double getJsonElementAsDouble(JsonElement element) {
     	Double num;
     	try {
     		num = element.getAsDouble();
@@ -21,7 +22,7 @@ public class JsonConverter {
     	return num;
     }
 	
-	static Integer getJsonElementAsInt(JsonElement element) {
+	public static Integer getJsonElementAsInt(JsonElement element) {
     	Integer num;
     	try {
     		num = element.getAsInt();
@@ -33,7 +34,7 @@ public class JsonConverter {
     	return num;
     }
     
-    static String getJsonElementAsString(JsonElement element) {
+    public static String getJsonElementAsString(JsonElement element) {
     	String s;
     	try {
     		s = element.getAsString();
@@ -44,7 +45,7 @@ public class JsonConverter {
     	return s;
     }
     
-    static JsonElement getFromJsonArray(JsonArray arr, int index) {
+    public static JsonElement getFromJsonArray(JsonArray arr, int index) {
     	try {
     		return arr.get(index);
     	} catch (IndexOutOfBoundsException e) {
@@ -52,7 +53,7 @@ public class JsonConverter {
     	}
     }
     
-    static Map<String, JsonElement> getMapFromJsonArray(JsonArray jsonArr) {
+    public static Map<String, JsonElement> getMapFromJsonArray(JsonArray jsonArr) {
     	Map<String, JsonElement> map = new HashMap<>();
 		for (JsonElement element : jsonArr) {
 			JsonObject obj = element.getAsJsonObject();

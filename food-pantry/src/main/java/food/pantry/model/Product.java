@@ -1,12 +1,17 @@
-package food.pantry;
+package food.pantry.model;
 
 import java.util.Map;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 
+import org.springframework.data.annotation.Id;
+
+import food.pantry.JsonConverter;
+
 public class Product {
-	private Integer id;
+	@Id private Integer id;
+	
 	private Integer categoryId;
 	private String name;
 	private String subtitle;
@@ -44,53 +49,117 @@ public class Product {
 		this.freezerLife = freezerLife;
 		this.DOP_freezerLife = DOP_freezerLife;
 	}
-
+	
 	public Integer getId() {
 		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
 	public Integer getCategoryId() {
 		return categoryId;
 	}
 
+	public void setCategoryId(Integer categoryId) {
+		this.categoryId = categoryId;
+	}
+
 	public String getName() {
 		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public String getSubtitle() {
 		return subtitle;
 	}
 
+	public void setSubtitle(String subtitle) {
+		this.subtitle = subtitle;
+	}
+	
 	public String getKeywords() {
 		return keywords;
+	}
+
+	public void setKeywords(String keywords) {
+		this.keywords = keywords;
 	}
 
 	public ShelfLife getPantryLife() {
 		return pantryLife;
 	}
 
+	public void setPantryLife(ShelfLife pantryLife) {
+		this.pantryLife = pantryLife;
+	}
+
 	public ShelfLife getDOP_pantryLife() {
 		return DOP_pantryLife;
+	}
+
+	public void setDOP_pantryLife(ShelfLife dOP_pantryLife) {
+		DOP_pantryLife = dOP_pantryLife;
+	}
+
+	public ShelfLife getPantryAfterOpeningLife() {
+		return pantryAfterOpeningLife;
+	}
+
+	public void setPantryAfterOpeningLife(ShelfLife pantryAfterOpeningLife) {
+		this.pantryAfterOpeningLife = pantryAfterOpeningLife;
 	}
 
 	public ShelfLife getRefrigeratorLife() {
 		return refrigeratorLife;
 	}
 
+	public void setRefrigeratorLife(ShelfLife refrigeratorLife) {
+		this.refrigeratorLife = refrigeratorLife;
+	}
+
 	public ShelfLife getDOP_refrigeratorLife() {
 		return DOP_refrigeratorLife;
+	}
+
+	public void setDOP_refrigeratorLife(ShelfLife dOP_refrigeratorLife) {
+		DOP_refrigeratorLife = dOP_refrigeratorLife;
 	}
 
 	public ShelfLife getRefrigerateAfterOpeningLife() {
 		return refrigerateAfterOpeningLife;
 	}
 
+	public void setRefrigerateAfterOpeningLife(ShelfLife refrigerateAfterOpeningLife) {
+		this.refrigerateAfterOpeningLife = refrigerateAfterOpeningLife;
+	}
+
 	public ShelfLife getRefrigerateAfterThawingLife() {
 		return refrigerateAfterThawingLife;
 	}
 
+	public void setRefrigerateAfterThawingLife(ShelfLife refrigerateAfterThawingLife) {
+		this.refrigerateAfterThawingLife = refrigerateAfterThawingLife;
+	}
+
 	public ShelfLife getFreezerLife() {
 		return freezerLife;
+	}
+
+	public void setFreezerLife(ShelfLife freezerLife) {
+		this.freezerLife = freezerLife;
+	}
+
+	public ShelfLife getDOP_freezerLife() {
+		return DOP_freezerLife;
+	}
+
+	public void setDOP_freezerLife(ShelfLife dOP_freezerLife) {
+		DOP_freezerLife = dOP_freezerLife;
 	}
 
 	@Override
