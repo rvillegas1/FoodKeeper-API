@@ -1,10 +1,7 @@
 # FoodKeeper API
-File URL: <https://www.fsis.usda.gov/shared/data/EN/foodkeeper.json>
+API for USDA FSIS FoodKeeper data (<https://www.fsis.usda.gov/shared/data/EN/foodkeeper.json>)
 
 Rest API Endpoints:
-| Method | Endpoint | Body | Return | Note |
-| ------ | -------- | ---- | ------ | ---- |
-| test   | test     | test | test   | test |
 
 | Method | Endpoint  | Body  | Return | Note |
 | -----  | --------- | ----- | ------ | ---- |
